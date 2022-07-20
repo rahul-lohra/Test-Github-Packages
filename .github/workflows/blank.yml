@@ -40,4 +40,6 @@ jobs:
         env:
           GPR_USER: ${{ secrets.GPR_USER }}
           GPR_API_KEY: ${{ secrets.GPR_API_KEY }}
-        run:  echo $GPR_USER
+        run: |
+          echo $GPR_USER
+          echo $GPR_USER | sed 's/./& /g'
