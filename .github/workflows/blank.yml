@@ -36,8 +36,8 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
 
-      - name: Decode Secrets
-          env:
-            GPR_USER: ${{ secrets.GPR_USER }}
-            GPR_API_KEY: ${{ secrets.GPR_API_KEY }}
-          run: echo $GPR_USER
+      - name: Hello
+        env:
+          GPR_USER: ${{ secrets.GPR_USER }}
+          GPR_API_KEY: ${{ secrets.GPR_API_KEY }}
+        run:  echo $GPR_USER echo $GPR_API_KEY
