@@ -8,7 +8,11 @@ plugins {
 allprojects {
 
     def githubProperties = new Properties()
-    githubProperties.load(new FileInputStream(rootProject.file("github.properties")))
+    def gprFile = rootProject.file("github.properties")
+    if(gprFile.exists()){
+        githubProperties.load(new FileInputStream(gprFile))
+    }
+
 
     repositories {
         google()

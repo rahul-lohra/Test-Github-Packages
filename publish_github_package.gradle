@@ -1,7 +1,10 @@
 apply plugin: 'maven-publish'
 
 def githubProperties = new Properties()
-githubProperties.load(new FileInputStream(rootProject.file("github.properties")))
+def gprFile = rootProject.file("github.properties")
+if(gprFile.exists()){
+    githubProperties.load(new FileInputStream(gprFile))
+}
 
 task sourcesJar(type: Jar) {
     from android.sourceSets.main.java.srcDirs
