@@ -1,5 +1,5 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
 }
 
@@ -7,12 +7,11 @@ android {
     compileSdk 32
 
     defaultConfig {
-        applicationId "com.rahul.testgithubpackage"
         minSdk 24
         targetSdk 32
-        versionCode 1
-        versionName "1.0"
 
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
@@ -28,11 +27,6 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    repositories {
-        google()
-        mavenCentral()
-        mavenLocal()
-    }
 }
 
 dependencies {
@@ -40,5 +34,14 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.2'
     implementation 'com.google.android.material:material:1.6.1'
-    implementation 'com.rahul:mytestlibrary:1.0.4'
 }
+
+project.ext {
+    artifactId = 'mytestlibrary'
+    groupId = 'com.rahul'
+    versionName = "1.0.6"
+    artifactName = "$artifactId-debug"
+}
+
+apply from: "$rootProject.projectDir/publish_github_package.gradle"
+//apply from: "https://gist.githubusercontent.com/rubensousa/44c51b845678c7a0fefbbf238d16ed11/raw/3adb225f3ae4bffcda13c453b85e600964c3b0e7/publish_github.gradle"

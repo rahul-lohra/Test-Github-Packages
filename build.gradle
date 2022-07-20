@@ -5,6 +5,24 @@ plugins {
     id 'org.jetbrains.kotlin.android' version '1.7.10' apply false
 }
 
+allprojects {
+
+    def githubProperties = new Properties()
+    githubProperties.load(new FileInputStream(rootProject.file("github.properties")))
+
+    repositories {
+        google()
+        mavenCentral()
+        mavenLocal()
+        maven {
+            url = "https://maven.pkg.github.com/rahul-lohra/Test-Github-Packages"
+            credentials {
+                username = githubProperties['gpr.usr']
+                password = githubProperties['gpr.key']
+            }
+        }
+    }
+}
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
