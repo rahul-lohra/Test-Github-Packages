@@ -34,7 +34,9 @@ android {
         mavenLocal()
     }
 }
-
+task printCreds{
+    print (System.getenv("GPR_USER"))
+}
 dependencies {
 
     implementation 'androidx.core:core-ktx:1.7.0'
