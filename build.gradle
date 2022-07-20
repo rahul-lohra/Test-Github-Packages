@@ -13,7 +13,6 @@ allprojects {
         githubProperties.load(new FileInputStream(gprFile))
     }
 
-
     repositories {
         google()
         mavenCentral()

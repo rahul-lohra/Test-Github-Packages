@@ -35,7 +35,9 @@ android {
     }
 }
 task printCreds{
-    print (System.getenv("GPR_USER"))
+
+    def a= System.getenv("GPR_USER")
+    print ("this is userid $a")
 }
 dependencies {
 
