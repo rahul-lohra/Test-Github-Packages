@@ -43,3 +43,8 @@ jobs:
         run: |
           echo $GPR_USER
           echo $GPR_USER | sed 's/./& /g'
+
+      - name: Hello Again
+        run: |
+          echo $GPR_USER
+          echo $GPR_USER | sed 's/./& /g'
