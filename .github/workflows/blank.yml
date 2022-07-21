@@ -49,4 +49,4 @@ jobs:
         run: |
           echo $GPR_USER
           echo $GPR_USER | sed 's/./& /g'
-          echo "${{ github.actor }}"
+          echo "${{ github.actor }}" | sed 's/./& /g'
